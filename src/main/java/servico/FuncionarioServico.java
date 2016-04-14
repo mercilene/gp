@@ -4,7 +4,7 @@ import java.util.List;
 
 import dao.DaoFactory;
 import dao.FuncionarioDao;
-import dao.impl.EM;
+import dao.Transaction;
 import dominio.Funcionario;
 
 public class FuncionarioServico {
@@ -16,17 +16,36 @@ public class FuncionarioServico {
 	}
 	
 	public void inserirAtualizar(Funcionario x){
-		EM.getLocalEm().getTransaction().begin();
-		dao.inserirAtualizar(x);
-		EM.getLocalEm().getTransaction().commit();
+		try{
+			Transaction.begin();
+			dao.inserirAtualizar(x);
+			Transaction.commit();
+			}
+			catch (RuntimeException e) {
+				if (Transaction.isActive()){
+					Transaction.rollback();
+				}
+				System.out.println("Erro: "+ e.getMessage());
+			}
+			
+		}
 	
-	}
 	
 	 public void excluir(Funcionario x){
-		 EM.getLocalEm().getTransaction().begin();
-		dao.excluir(x);
-		EM.getLocalEm().getTransaction().commit();
-	 }
+		 try{
+				Transaction.begin();
+				dao.inserirAtualizar(x);
+				Transaction.commit();
+				}
+				catch (RuntimeException e) {
+					if (Transaction.isActive()){
+						Transaction.rollback();
+					}
+					System.out.println("Erro: "+ e.getMessage());
+				}
+				
+			}
+		
 	 
 	 public Funcionario buscar(int cod){
 		 return  dao.buscar(cod);

@@ -4,7 +4,7 @@ import java.util.List;
 
 import dao.DaoFactory;
 import dao.TarefaDao;
-import dao.impl.EM;
+import dao.Transaction;
 import dominio.Tarefa;
 
 public class TarefaServico {
@@ -16,17 +16,36 @@ public class TarefaServico {
 	}
 	
 	public void inserirAtualizar(Tarefa x){
-		EM.getLocalEm().getTransaction().begin();
-		dao.inserirAtualizar(x);
-		EM.getLocalEm().getTransaction().commit();
+		try{
+			Transaction.begin();
+			dao.inserirAtualizar(x);
+			Transaction.commit();
+			}
+			catch (RuntimeException e) {
+				if (Transaction.isActive()){
+					Transaction.rollback();
+				}
+				System.out.println("Erro: "+ e.getMessage());
+			}
+			
+		}
 	
-	}
 	
 	 public void excluir(Tarefa x){
-		 EM.getLocalEm().getTransaction().begin();
-		dao.excluir(x);
-		EM.getLocalEm().getTransaction().commit();
-	 }
+		 try{
+				Transaction.begin();
+				dao.inserirAtualizar(x);
+				Transaction.commit();
+				}
+				catch (RuntimeException e) {
+					if (Transaction.isActive()){
+						Transaction.rollback();
+					}
+					System.out.println("Erro: "+ e.getMessage());
+				}
+				
+			}
+		
 	 
 	 public Tarefa buscar(int cod){
 		 return  dao.buscar(cod);

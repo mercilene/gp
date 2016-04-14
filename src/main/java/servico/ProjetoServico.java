@@ -4,7 +4,7 @@ import java.util.List;
 
 import dao.DaoFactory;
 import dao.ProjetoDao;
-import dao.impl.EM;
+import dao.Transaction;
 import dominio.Projeto;
 
 public class ProjetoServico {
@@ -16,17 +16,36 @@ public class ProjetoServico {
 	}
 	
 	public void inserirAtualizar(Projeto x){
-		EM.getLocalEm().getTransaction().begin();
-		dao.inserirAtualizar(x);
-		EM.getLocalEm().getTransaction().commit();
+		try{
+			Transaction.begin();
+			dao.inserirAtualizar(x);
+			Transaction.commit();
+			}
+			catch (RuntimeException e) {
+				if (Transaction.isActive()){
+					Transaction.rollback();
+				}
+				System.out.println("Erro: "+ e.getMessage());
+			}
+			
+		}
 	
-	}
 	
 	 public void excluir(Projeto x){
-		 EM.getLocalEm().getTransaction().begin();
-		dao.excluir(x);
-		EM.getLocalEm().getTransaction().commit();
-	 }
+		 try{
+				Transaction.begin();
+				dao.inserirAtualizar(x);
+				Transaction.commit();
+				}
+				catch (RuntimeException e) {
+					if (Transaction.isActive()){
+						Transaction.rollback();
+					}
+					System.out.println("Erro: "+ e.getMessage());
+				}
+				
+			}
+		
 	 
 	 public Projeto buscar(int cod){
 		 return  dao.buscar(cod);

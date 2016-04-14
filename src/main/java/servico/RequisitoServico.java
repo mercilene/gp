@@ -4,7 +4,7 @@ import java.util.List;
 
 import dao.DaoFactory;
 import dao.RequisitoDao;
-import dao.impl.EM;
+import dao.Transaction;
 import dominio.Requisito;
 
 public class RequisitoServico {
@@ -16,17 +16,36 @@ public class RequisitoServico {
 	}
 	
 	public void inserirAtualizar(Requisito x){
-		EM.getLocalEm().getTransaction().begin();
-		dao.inserirAtualizar(x);
-		EM.getLocalEm().getTransaction().commit();
+		try{
+			Transaction.begin();
+			dao.inserirAtualizar(x);
+			Transaction.commit();
+			}
+			catch (RuntimeException e) {
+				if (Transaction.isActive()){
+					Transaction.rollback();
+				}
+				System.out.println("Erro: "+ e.getMessage());
+			}
+			
+		}
 	
-	}
 	
 	 public void excluir(Requisito x){
-		 EM.getLocalEm().getTransaction().begin();
-		dao.excluir(x);
-		EM.getLocalEm().getTransaction().commit();
-	 }
+		 try{
+				Transaction.begin();
+				dao.inserirAtualizar(x);
+				Transaction.commit();
+				}
+				catch (RuntimeException e) {
+					if (Transaction.isActive()){
+						Transaction.rollback();
+					}
+					System.out.println("Erro: "+ e.getMessage());
+				}
+				
+			}
+		
 	 
 	 public Requisito buscar(int cod){
 		 return  dao.buscar(cod);
