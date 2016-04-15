@@ -15,7 +15,7 @@ public class FuncionarioServico {
 		dao = DaoFactory.criarFuncionarioDao();
 	}
 	
-	public void inserirAtualizar(Funcionario x) throws ServicoException{
+	public void inserir(Funcionario x) throws ServicoException{
 		try{
 			Funcionario aux = dao.buscaCpfExato(x.getCpf());
 			if(aux != null){
@@ -34,9 +34,32 @@ public class FuncionarioServico {
 			
 		}
 	
+	public void atualizar(Funcionario x) throws ServicoException{
+		try{
+			Funcionario aux = dao.buscaCpfExatoDiferente(x.getCodFuncionario(), x.getCpf());
+			if(aux != null){
+				throw new ServicoException("Já existe um funcionário cadastrado com este CPF!", 1);
+			}
+			Transaction.begin();
+			dao.inserirAtualizar(x);
+			Transaction.commit();
+			}
+			catch (RuntimeException e) {
+				if (Transaction.isActive()){
+					Transaction.rollback();
+				}
+				System.out.println("Erro: "+ e.getMessage());
+			}
+			
+		}
 	
-	 public void excluir(Funcionario x){
+	
+	 public void excluir(Funcionario x) throws ServicoException{
 		 try{
+			 x = dao.buscar(x.getCodFuncionario());
+			 if(!x.getTarefas().isEmpty()){
+				 throw new ServicoException("Exclusão não permitida: este funcionario possui tarefas", 2);
+			 }
 				Transaction.begin();
 				dao.inserirAtualizar(x);
 				Transaction.commit();
@@ -61,5 +84,9 @@ public class FuncionarioServico {
 	 
 	 public List<Funcionario> buscarTodosOrdenadosPorNome(){
 		 return dao.buscarTodosOrdenadosPorNome();		 
+	 }
+	 
+	 public List<Funcionario> buscarPorNome(String trecho){
+		 return dao.buscarPorNome(trecho);
 	 }
 }

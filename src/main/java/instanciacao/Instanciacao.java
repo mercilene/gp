@@ -88,9 +88,9 @@ public class Instanciacao extends HttpServlet {
 		ProjetoServico ps = new ProjetoServico();
 		ClienteServico cs = new ClienteServico();
 		
-		fs.inserirAtualizar(f1);
-		fs.inserirAtualizar(f2);
-		fs.inserirAtualizar(f3);
+		fs.inserir(f1);
+		fs.inserir(f2);
+		fs.inserir(f3);
 		
 		cs.inserirAtualizar(c1);
 		cs.inserirAtualizar(c2);

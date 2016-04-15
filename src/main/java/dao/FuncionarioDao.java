@@ -13,4 +13,6 @@ public interface FuncionarioDao {
  
  public List<Funcionario> buscarTodosOrdenadosPorNome();
  public Funcionario buscaCpfExato(String cpf);
+ public Funcionario buscaCpfExatoDiferente(Integer codigo, String cpf);
+ public List<Funcionario> buscarPorNome(String trecho);
 }
