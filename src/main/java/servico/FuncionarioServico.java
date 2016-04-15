@@ -15,8 +15,12 @@ public class FuncionarioServico {
 		dao = DaoFactory.criarFuncionarioDao();
 	}
 	
-	public void inserirAtualizar(Funcionario x){
+	public void inserirAtualizar(Funcionario x) throws ServicoException{
 		try{
+			Funcionario aux = dao.buscaCpfExato(x.getCpf());
+			if(aux != null){
+				throw new ServicoException("Já existe um funcionário cadastrado com este CPF!", 1);
+			}
 			Transaction.begin();
 			dao.inserirAtualizar(x);
 			Transaction.commit();
@@ -53,5 +57,9 @@ public class FuncionarioServico {
 	 
 	 public List<Funcionario> buscarTodos(){
 		 return dao.buscarTodos();		 
+	 }
+	 
+	 public List<Funcionario> buscarTodosOrdenadosPorNome(){
+		 return dao.buscarTodosOrdenadosPorNome();		 
 	 }
 }

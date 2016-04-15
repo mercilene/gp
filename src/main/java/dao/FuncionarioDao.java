@@ -10,4 +10,7 @@ public interface FuncionarioDao {
  public void excluir(Funcionario x);
  public Funcionario buscar(int cod);
  public List<Funcionario> buscarTodos();
+ 
+ public List<Funcionario> buscarTodosOrdenadosPorNome();
+ public Funcionario buscaCpfExato(String cpf);
 }

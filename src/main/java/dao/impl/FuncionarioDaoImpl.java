@@ -42,5 +42,23 @@ public class FuncionarioDaoImpl implements FuncionarioDao {
 		Query query = em.createNamedQuery(jpql);
 		return query.getResultList();
 	}
+	
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Funcionario> buscarTodosOrdenadosPorNome() {
+		String jpql = "SELECT x FROM Funcionario x ORDER BY x.nome";
+		Query query = em.createNamedQuery(jpql);
+		return query.getResultList();
+	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public Funcionario buscaCpfExato(String cpf) {
+		String jpql = "SELECT x FROM Funcionario x WHERE x.cpf = :p1";
+		Query query = em.createQuery(jpql);
+		query.setParameter("p1", cpf);
+		List<Funcionario> aux = query.getResultList();
+		return (aux.size() > 0) ? aux.get(0) : null;
+	}
 }

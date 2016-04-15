@@ -20,6 +20,7 @@ import servico.ClienteServico;
 import servico.FuncionarioServico;
 import servico.ProjetoServico;
 import servico.RequisitoServico;
+import servico.ServicoException;
 import servico.TarefaServico;
 
 @WebServlet("/Instanciacao")
@@ -34,7 +35,7 @@ public class Instanciacao extends HttpServlet {
 			
 		//Funcionario f0 = new Funcionario(codFuncionario, nome, cpf, fone, email, nascimento, salario);
 		Funcionario f1 = new Funcionario(null, "Rafael", "302.502.775-41", "(34)99123-4567", "rafael@lojistaonline.com.br", sdf.parse("08/03/2016"), new BigDecimal("1700.00"));
-		Funcionario f2 = new Funcionario(null, "Ayne", "305.582.875-91", "(34)99123-4068", "ayne@lojistaonline.com.br", sdf.parse("16/03/1986"), new BigDecimal("1600.00")); 
+		Funcionario f2 = new Funcionario(null, "Ayne", "302.582.875-91", "(34)99123-4068", "ayne@lojistaonline.com.br", sdf.parse("16/03/1986"), new BigDecimal("1600.00")); 
 		Funcionario f3 = new Funcionario(null, "Juliano", "805.582.785-90", "(34)99123-4569", "juliano@lojistaonline.com.br", sdf.parse("17/03/1986"), new BigDecimal("1500.00")); 
 		 	
 	
@@ -198,6 +199,9 @@ public class Instanciacao extends HttpServlet {
 		catch (ParseException e){
 			response.getWriter().append("Erro ao instanciar data. Instância não criada!");
 	}
+		catch (ServicoException e){
+			response.getWriter().append("Erro"+ e.getMessage());
+		}
 	}
 }
 
