@@ -14,4 +14,5 @@ public interface TarefaDao {
  public Tarefa buscar(int cod);
  public List<Tarefa> buscarTodos();
  public Tarefa buscarExato(String descricao, Integer horas, Funcionario funcionario, Requisito requisito);
+ public Tarefa buscarExatoDiferente( Integer codigo, String descricao, Integer horas, Funcionario funcionario, Requisito requisito);
 }

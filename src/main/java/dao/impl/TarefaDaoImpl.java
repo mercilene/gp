@@ -64,4 +64,18 @@ public class TarefaDaoImpl implements TarefaDao {
 		List<Tarefa> aux = query.getResultList();
 		return (aux.size() > 0) ? aux.get(0) : null;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Tarefa buscarExatoDiferente(Integer codigo, String descricao, Integer horas, Funcionario funcionario, Requisito requisito){
+		String jpql = "SELECT x FROM Tarefa x WHERE x.codigoTarefa <> :p0 AND x.descricao = :p1 AND  x.horas = :p2 AND x.funcionario = :p3 AND x.requisito = :p4";
+		Query query = em.createQuery(jpql);
+		query.setParameter("p0", codigo);
+		query.setParameter("p1", descricao);
+		query.setParameter("p2", horas);
+		query.setParameter("p3", funcionario);
+		query.setParameter("p4", requisito);
+		List<Tarefa> aux = query.getResultList();
+		return (aux.size() > 0) ? aux.get(0) : null;
+	}
 }

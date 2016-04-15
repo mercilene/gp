@@ -32,8 +32,12 @@ public class TarefaServico {
 				System.out.println("Erro: "+ e.getMessage());
 			}
 	}
-		public void atualizar(Tarefa x){
+		public void atualizar(Tarefa x) throws ServicoException{
 			try{
+				Tarefa aux =dao.buscarExatoDiferente(x.getCodTarefa(),x.getDescricao(), x.getHoras(), x.getFuncionario(), x.getRequisito());
+				if (aux != null){
+					throw new ServicoException("Já existe essa mesma tarefa cadastrada para o"+ " funcionário " + x.getFuncionario().getNome() + " no requisito" + x.getRequisito().getDescricao(), 3);
+				}
 				Transaction.begin();
 				dao.atualizar(x);
 				Transaction.commit();
