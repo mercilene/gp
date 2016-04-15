@@ -39,7 +39,7 @@ public class FuncionarioDaoImpl implements FuncionarioDao {
 	@Override
 	public List<Funcionario> buscarTodos() {
 		String jpql = "SELECT x FROM Funcionario x";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 	
@@ -48,7 +48,7 @@ public class FuncionarioDaoImpl implements FuncionarioDao {
 	@Override
 	public List<Funcionario> buscarTodosOrdenadosPorNome() {
 		String jpql = "SELECT x FROM Funcionario x ORDER BY x.nome";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 

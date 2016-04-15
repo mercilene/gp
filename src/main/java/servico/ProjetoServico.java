@@ -1,5 +1,6 @@
 package servico;
 
+import java.util.Date;
 import java.util.List;
 
 import dao.DaoFactory;
@@ -53,5 +54,9 @@ public class ProjetoServico {
 	 
 	 public List<Projeto> buscarTodos(){
 		 return dao.buscarTodos();		 
+	 }
+	 
+	 public List<Projeto> buscarNomeData( String nome, Date dataMin, Date dataMax){
+		 return dao.buscarNomeData( nome, dataMin, dataMax);
 	 }
 }

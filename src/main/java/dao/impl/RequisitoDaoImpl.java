@@ -39,7 +39,7 @@ public class RequisitoDaoImpl implements RequisitoDao {
 	@Override
 	public List<Requisito> buscarTodos() {
 		String jpql = "SELECT x FROM Requisito x";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 

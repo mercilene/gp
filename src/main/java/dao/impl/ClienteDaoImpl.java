@@ -39,7 +39,7 @@ public class ClienteDaoImpl implements ClienteDao {
 	@Override
 	public List<Cliente> buscarTodos() {
 		String jpql = "SELECT x FROM Cliente x";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 

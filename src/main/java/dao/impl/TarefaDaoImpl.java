@@ -39,7 +39,7 @@ public class TarefaDaoImpl implements TarefaDao {
 	@Override
 	public List<Tarefa> buscarTodos() {
 		String jpql = "SELECT x FROM Tarefa x";
-		Query query = em.createNamedQuery(jpql);
+		Query query = em.createQuery(jpql);
 		return query.getResultList();
 	}
 
