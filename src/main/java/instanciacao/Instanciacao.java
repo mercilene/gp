@@ -109,24 +109,24 @@ public class Instanciacao extends HttpServlet {
 		rs.inserirAtualizar(r8);
 		rs.inserirAtualizar(r9);
 
-		ts.inserirAtualizar(t1);
-		ts.inserirAtualizar(t2);
-		ts.inserirAtualizar(t3);
-		ts.inserirAtualizar(t4);
-		ts.inserirAtualizar(t5);
-		ts.inserirAtualizar(t6);
-		ts.inserirAtualizar(t7);
-		ts.inserirAtualizar(t8);
-		ts.inserirAtualizar(t9);
-		ts.inserirAtualizar(t10);
-		ts.inserirAtualizar(t11);
-		ts.inserirAtualizar(t12);
-		ts.inserirAtualizar(t13);
-		ts.inserirAtualizar(t14);
-		ts.inserirAtualizar(t15);
-		ts.inserirAtualizar(t16);
-		ts.inserirAtualizar(t17);
-		ts.inserirAtualizar(t18);
+		ts.inserir(t1);
+		ts.inserir(t2);
+		ts.inserir(t3);
+		ts.inserir(t4);
+		ts.inserir(t5);
+		ts.inserir(t6);
+		ts.inserir(t7);
+		ts.inserir(t8);
+		ts.inserir(t9);
+		ts.inserir(t10);
+		ts.inserir(t11);
+		ts.inserir(t12);
+		ts.inserir(t13);
+		ts.inserir(t14);
+		ts.inserir(t15);
+		ts.inserir(t16);
+		ts.inserir(t17);
+		ts.inserir(t18);
 									
 				
 		

@@ -22,7 +22,7 @@ public class FuncionarioServico {
 				throw new ServicoException("Já existe um funcionário cadastrado com este CPF!", 1);
 			}
 			Transaction.begin();
-			dao.inserirAtualizar(x);
+			dao.inserir(x);
 			Transaction.commit();
 			}
 			catch (RuntimeException e) {
@@ -41,7 +41,7 @@ public class FuncionarioServico {
 				throw new ServicoException("Já existe um funcionário cadastrado com este CPF!", 1);
 			}
 			Transaction.begin();
-			dao.inserirAtualizar(x);
+			dao.atualizar(x);
 			Transaction.commit();
 			}
 			catch (RuntimeException e) {
@@ -61,7 +61,7 @@ public class FuncionarioServico {
 				 throw new ServicoException("Exclusão não permitida: este funcionario possui tarefas", 2);
 			 }
 				Transaction.begin();
-				dao.inserirAtualizar(x);
+				dao.atualizar(x);
 				Transaction.commit();
 				}
 				catch (RuntimeException e) {

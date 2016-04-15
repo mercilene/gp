@@ -17,13 +17,20 @@ public class FuncionarioDaoImpl implements FuncionarioDao {
 	}
 
 	@Override
-	public void inserirAtualizar(Funcionario x) {
+	public void inserir(Funcionario x) {
 		if (x.getCodFuncionario() != null) {
 			x = em.merge(x);
 		}
 		em.persist(x);
 	}
 
+	@Override
+	public void atualizar(Funcionario x) {
+		if (x.getCodFuncionario() != null) {
+			x = em.merge(x);
+		}
+		em.persist(x);
+	}
 	@Override
 	public void excluir(Funcionario x) {
 		x = em.merge(x);
