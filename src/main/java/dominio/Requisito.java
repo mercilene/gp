@@ -152,23 +152,4 @@ public class Requisito implements Serializable{
 		}
 	}
 	
-	/*	
-	public Boolean extrapolado(){
-		
-		//converter horas  integer para bollean?
-		//Extrapolado = Horas - Horas Prevista 
-		 * se menor que zero retorna horas extrapoladas ?
-		 
-		 
-		return tarefa.getHoras().subtract(horasPrevistas);
-	}  */
-	
-	/*	
-	public Boolean HorasTotais(){
-		 soma das horas + extrapolado		
-		 
-		
-	}  */
-
-
 }

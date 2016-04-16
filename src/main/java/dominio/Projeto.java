@@ -146,26 +146,7 @@ public class Projeto implements Serializable{
 		}
 		return soma;
 	}
-	
-	//Custo total pode ser custo + custo extrapolado
-	/*public BigDecimal custoExtrapolado (){
-		return requisito.getExtrapolado().Multiply(new BigDecimal(custo));
-		
-		Big Decimal soma = new Big Decimal ("0.00");
-		 return soma.add(custoExtrapolado().add(custo));
-		
-	} */
-	
-	// Custo Total é valor das horas + horas extrapoladas multiplicadas por custo.
-	// Custo Total são as  horas totais x custo
-	
-	/*public BigDecimal custoTotal(){
-		BigDecimal soma = new BigDecimal("0.00");
-	for(Requisito r: requisitos){
-		soma = soma.add(r.getHoras().getExtrapolado().Multiply(new BigDecimal(custo)));
-	}
-	return soma;
-	}*/
+
 	
 	
 }

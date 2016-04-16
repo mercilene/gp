@@ -6,8 +6,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import dao.TarefaDao;
-import dominio.Funcionario;
-import dominio.Requisito;
 import dominio.Tarefa;
 
 public class TarefaDaoImpl implements TarefaDao {
@@ -52,6 +50,7 @@ public class TarefaDaoImpl implements TarefaDao {
 		return query.getResultList();
 	}
 	
+	/*
 	@SuppressWarnings("unchecked")
 	@Override
 	public Tarefa buscarExato(String descricao, Integer horas, Funcionario funcionario, Requisito requisito){
@@ -63,6 +62,7 @@ public class TarefaDaoImpl implements TarefaDao {
 		query.setParameter("p4", requisito);
 		List<Tarefa> aux = query.getResultList();
 		return (aux.size() > 0) ? aux.get(0) : null;
+		
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -77,5 +77,6 @@ public class TarefaDaoImpl implements TarefaDao {
 		query.setParameter("p4", requisito);
 		List<Tarefa> aux = query.getResultList();
 		return (aux.size() > 0) ? aux.get(0) : null;
+	}*/
+	
 	}
-}

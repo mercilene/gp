@@ -56,7 +56,7 @@ public class ProjetoServico {
 		 return dao.buscarTodos();		 
 	 }
 	 
-	 public List<Projeto> buscarNomeData( String nome, Date dataMin, Date dataMax){
-		 return dao.buscarNomeData( nome, dataMin, dataMax);
+	 public List<Projeto> buscarPorNomeData( String nome, Date dataMin, Date dataMax){
+		 return dao.buscarPorNomeData( nome, dataMin, dataMax);
 	 }
 }

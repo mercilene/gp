@@ -32,6 +32,7 @@ public class Instanciacao extends HttpServlet {
 		
 		try{
 			SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+			//sdf.parse("01/01/2000");
 			
 		//Funcionario f0 = new Funcionario(codFuncionario, nome, cpf, fone, email, nascimento, salario);
 		Funcionario f1 = new Funcionario(null, "Rafael", "302.502.775-41", "(34)99123-4567", "rafael@lojistaonline.com.br", sdf.parse("08/03/2016"), new BigDecimal("1700.00"));
@@ -88,6 +89,9 @@ public class Instanciacao extends HttpServlet {
 		ProjetoServico ps = new ProjetoServico();
 		ClienteServico cs = new ClienteServico();
 		
+	
+				
+		
 		fs.inserir(f1);
 		fs.inserir(f2);
 		fs.inserir(f3);
@@ -130,7 +134,7 @@ public class Instanciacao extends HttpServlet {
 									
 				
 		
-		
+	
 		
 		
 		

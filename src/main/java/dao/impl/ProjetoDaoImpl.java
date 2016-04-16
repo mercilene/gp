@@ -46,7 +46,7 @@ public class ProjetoDaoImpl implements ProjetoDao {
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Projeto> buscarNomeData( String nome, Date dataMin, Date dataMax){
+	public List<Projeto> buscarPorNomeData( String nome, Date dataMin, Date dataMax){
 		String jpql = "SELECT x FROM Projeto x WHERE x.nome LIKE :p1 AND x.dataEntrega >= :p2 AND x.dataEntrega <= :p3";
 		Query query = em.createQuery(jpql);
 		query.setParameter("p1","%" +nome+ "%");
