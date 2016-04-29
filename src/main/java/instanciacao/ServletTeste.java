@@ -1,4 +1,4 @@
-package web;
+package instanciacao;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
