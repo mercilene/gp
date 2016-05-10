@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <title>Sistema de Gerenciamento de Projeto</title>
 
     <!-- Bootstrap core CSS -->
@@ -26,7 +26,7 @@
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>Funcion√°rios</h1>
+        <h1>Funcion·rios</h1>
       </div>
       
       <div class="row">
@@ -48,14 +48,14 @@
       <table class="table">
     	<thead>
     		<tr>
-    			<th>C√≥digo</th>
+    			<th>CÛdigo</th>
     			<th>Nome</th>
     			<th>CPF</th>
     			<th>Fone</th>
     			<th>Email</th>
     			<th>Data de Nascimento</th>
-    			<th>Sal√°rio</th>
-    			<th>A√ß√£o</th>
+    			<th>Sal·rio</th>
+    			<th>AÁ„o</th>
     		</tr>
     	</thead>
     	<tbody>

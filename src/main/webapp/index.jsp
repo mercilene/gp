@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="f"%>
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
     <title>Sistema de Gerenciamento de Projeto</title>
 
     <!-- Bootstrap core CSS -->
@@ -22,9 +22,9 @@
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>P√°gina inicial</h1>
+        <h1>P·gina inicial</h1>
       </div>
-      <p class="lead">Sistema did√°tico Java para web.</p>
+      <p class="lead">Sistema did·tico Java para web.</p>
       <p><a href="https://youtube.com/educandoweb">Educando web - youtube.com/educandoweb</a></p>
     </div>
 
