@@ -25,7 +25,7 @@
         <h1>Inserir novo Funcionário</h1>
       </div>
      
-     <form name="myform" class="form-horizontal" action="<%=request.getContextPath()%>/funcionario/inserir">
+     <form method="post" name="myform" class="form-horizontal" action="<%=request.getContextPath()%>/funcionario/inserir">
      
      	<div class="form-group">
      		<label class="col-sm-2 control-label" for="nome">Nome:</label>

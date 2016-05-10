@@ -21,7 +21,7 @@ public class FuncionarioInserir extends HttpServlet {
 	private static String DESTINO ="/funcionario/listar.jsp";
 	private static String ERRO ="/public/erro.jsp";
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		FuncionarioServico fs = new FuncionarioServico();
 		Funcionario x = Instanciar.funcionario(request);
 		try {
