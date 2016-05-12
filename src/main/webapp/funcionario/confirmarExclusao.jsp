@@ -39,7 +39,7 @@
           
      	<div>
     	 	<a href="<%=request.getContextPath()%>/funcionario/excluir?cod=${item.codFuncionario}" class="btn btn-danger">Excluir</a>
-     		<a href="<%=request.getContextPath()%>/funcionario/listar" class="btn btn=default">Voltar</a>
+     		<a href="<%=request.getContextPath()%>/funcionario/listar" class="btn btn-default">Voltar</a>
      	</div>   
       </div>  	
 

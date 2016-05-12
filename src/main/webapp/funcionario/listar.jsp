@@ -68,8 +68,8 @@
     				<td>${x.email}</td>
     				<td><fmt:formatDate type="date" pattern="dd/MM/yyyy" value="${x.nascimento}"/></td>
     				<td><fmt:setLocale value="pt_BR"/><fmt:formatNumber type="currency" value="${x.salario}"/></td>
-    				<td><a href="<%=request.getContextPath()%>/funcionario/editar?cod=${x.codFuncionario}" class="btm btm-primary btn-xs">Editar</a>
-    				<a href="<%=request.getContextPath()%>/funcionario/remover?cod=${x.codFuncionario}" class="btm btm-danger btn-xs">Excluir</a></td>
+    				<td><a href="<%=request.getContextPath()%>/funcionario/editar?cod=${x.codFuncionario}" class="btn btn-primary btn-xs">Editar</a>
+    				<a href="<%=request.getContextPath()%>/funcionario/remover?cod=${x.codFuncionario}" class="btn btn-danger btn-xs">Excluir</a></td>
     			</tr> 
     		</c:forEach>
     	</tbody>
