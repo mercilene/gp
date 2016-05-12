@@ -139,7 +139,7 @@ public class Projeto implements Serializable{
 	}
 
 	
-	public BigDecimal custoTotal() {
+	public BigDecimal getCustoTotal() {
 		BigDecimal soma = new BigDecimal("0.00");
 		for (Requisito x : this.getRequisitos()) {
 			soma = soma.add(x.getCusto());

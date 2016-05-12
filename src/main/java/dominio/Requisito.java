@@ -138,7 +138,7 @@ public class Requisito implements Serializable{
 		return true;
 	}
 
-	public boolean extrapolado() {
+	public boolean getExtrapolado() {
 		int somaHorasTarefas = 0;
 		for (Tarefa x : this.getTarefas()) {
 			somaHorasTarefas = somaHorasTarefas + x.getHoras();
