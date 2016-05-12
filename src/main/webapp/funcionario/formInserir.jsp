@@ -25,7 +25,20 @@
         <h1>Inserir novo Funcionário</h1>
       </div>
      
-     <form method="post" name="myform" class="form-horizontal" action="<%=request.getContextPath()%>/funcionario/inserir">
+     <form method="post" name="myform" class="form-horizontal" 
+     action="<%=request.getContextPath()%>/funcionario/inserir">
+
+     
+     <div class="form-group">
+     		<div class="col-sm-offset-2 col-sm-10">
+     			<ul>
+     				<c:forEach items="${erros}" var="msg">
+     					<li class="erro">${msg}</li>
+     				</c:forEach>
+     			</ul>
+     		</div>
+     	</div>
+     
      
      	<div class="form-group">
      		<label class="col-sm-2 control-label" for="nome">Nome:</label>

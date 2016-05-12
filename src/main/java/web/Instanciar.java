@@ -16,7 +16,11 @@ public class Instanciar {
 
 		s = request.getParameter("codFuncionario");
 		if (s != null && !s.isEmpty()) {
+			try{
 			aux.setCodFuncionario(Integer.parseInt(s));
+			} catch(NumberFormatException e){
+				e.printStackTrace();
+			}
 		}
 
 		s = request.getParameter("nome");
@@ -50,7 +54,11 @@ public class Instanciar {
 
 		s = request.getParameter("salario");
 		if (s != null && !s.isEmpty()) {
+			try{
 			aux.setSalario(new BigDecimal(s));
+			} catch(NumberFormatException e){
+				e.printStackTrace();
+			}
 		}
 		return aux;
 	}

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import dominio.Funcionario;
 import servico.FuncionarioServico;
 import servico.ServicoException;
+import servico.ValidacaoException;
 
 
 @WebServlet("/funcionario/inserir")
@@ -19,12 +20,14 @@ public class FuncionarioInserir extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static String DESTINO ="/funcionario/listar.jsp";
-	private static String ERRO ="/public/erro.jsp";
+	private static String FORM = "/funcionario/formInserir.jsp";
+	private static String ERRO = "/public/erro.jsp";
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		FuncionarioServico fs = new FuncionarioServico();
 		Funcionario x = Instanciar.funcionario(request);
 		try {
+			fs.validar(x);
 			fs.inserir(x);
 			List<Funcionario> itens = fs.buscarTodosOrdenadosPorNome();
 			request.setAttribute("itens", itens);
@@ -32,6 +35,10 @@ public class FuncionarioInserir extends HttpServlet {
 		} catch (ServicoException e) {
 			request.setAttribute("msg", e.getMessage());
 			request.getRequestDispatcher(ERRO).forward(request, response);
+		} catch (ValidacaoException e) {
+			request.setAttribute("erros", e.getErros());
+			request.setAttribute("item", x);
+			request.getRequestDispatcher(FORM).forward(request, response);
 		}
 	
 	} 

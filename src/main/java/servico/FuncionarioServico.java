@@ -1,5 +1,6 @@
 package servico;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.DaoFactory;
@@ -13,6 +14,38 @@ public class FuncionarioServico {
 	
 	public FuncionarioServico(){
 		dao = DaoFactory.criarFuncionarioDao();
+	}
+	
+	public void validar(Funcionario x) throws ValidacaoException{
+		List<String> erros = new ArrayList<>();
+		
+		if (x.getNome()==null){
+			erros.add("Favor preencher o campo nome");
+		}
+		
+		if (x.getCpf()==null){
+			erros.add("Favor preencher o número válido do cpf");
+		}
+		
+		if (x.getFone()==null){
+			erros.add("Favor preencher o número do telefone");
+		}
+		
+		if (x.getEmail()==null){
+			erros.add("Favor preencher o email corretamente");
+		}
+		
+		if (x.getNascimento()==null){
+			erros.add("Favor preencher a data de nascimento");
+		}
+		
+		if (x.getSalario()==null){
+			erros.add("Favor preencher o valor para o salário");
+		}
+		
+		if (!erros.isEmpty()){
+			throw new ValidacaoException("Erro de validação", erros);
+		}
 	}
 	
 	public void inserir(Funcionario x) throws ServicoException{
