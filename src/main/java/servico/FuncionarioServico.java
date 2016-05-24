@@ -94,7 +94,7 @@ public class FuncionarioServico {
 				 throw new ServicoException("Exclusão não permitida: este funcionario possui tarefas", 2);
 			 }
 				Transaction.begin();
-				dao.atualizar(x);
+				dao.excluir(x);
 				Transaction.commit();
 				}
 				catch (RuntimeException e) {

@@ -79,7 +79,7 @@
      	<div class="form-group">
      		<label class="col-sm-2 control-label" for="salario">Salário:</label>
      			<div class="col-sm-5">
-     				<input type="text" name="salario" id="salario" value="<fmt:formatNumber type="currency" value="${item.salario}"/>" required="required" class="form-control"/>
+     				<input type="text" name="salario" id="salario" value="${item.salario}" required="required" class="form-control"/>
      			</div>
      	</div>
      	<div class="form-group">

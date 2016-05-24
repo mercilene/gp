@@ -83,7 +83,7 @@ public class FuncionarioDaoImpl implements FuncionarioDao {
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Funcionario> buscarPorNome(String trecho){
-		String jpql = "SELECT x FROM Funcionario x WHERE x.nome LIKE :p1";
+		String jpql = "SELECT x FROM Funcionario x WHERE x.nome LIKE :p1 ORDER BY x.nome";
 		Query query = em.createQuery(jpql);
 		query.setParameter("p1", "%" + trecho + "%");
 		return query.getResultList();
