@@ -19,6 +19,8 @@ public class ProjetoPesquisar extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		request.getRequestDispatcher(DESTINO).forward(request, response);
-	} 
 
-}
+		}
+	}
+
+

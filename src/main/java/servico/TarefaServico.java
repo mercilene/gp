@@ -1,5 +1,6 @@
 package servico;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dao.DaoFactory;
@@ -15,6 +16,23 @@ public class TarefaServico {
 		dao = DaoFactory.criarTarefaDao();
 	}
 	
+	
+	public void validar(Tarefa x) throws ValidacaoException{
+		List<String> erros = new ArrayList<>();
+		
+		if(x.getDescricao()==null){
+			erros.add("Favor preencher o campo descrição");
+		}
+		if(x.getHoras()==null){
+			erros.add("Favor preencher o campo horas");
+		}
+		if(x.getFuncionario()==null){
+			erros.add("Favor informar um funcionario");
+		}
+		if (!erros.isEmpty()){
+			throw new ValidacaoException("Erro de validação", erros);
+		}
+	}
 	
 	public void inserir(Tarefa x) throws ServicoException{
 		try{

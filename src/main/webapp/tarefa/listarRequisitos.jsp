@@ -22,29 +22,37 @@
     <!-- Begin page content -->
     <div class="container">
       <div class="page-header">
-        <h1>Detalhes do Projeto</h1>
+        <h1>Escolha um requisito</h1>
       </div>
+      
+      <table class="table">
+      <thead>
+      	<tr>
+      		<th>Código</th>
+      		<th>Descrição</th>
+      		<th>Horas Previstas</th>
+      		<th>Custo</th>
+      		<th>Ação</th>
+      	</tr>
+      </thead>
+      	<tbody>
+      	 <c:forEach items="${itens}" var="x">
+      	 <tr>
+      		<td>${x.codProjeto}</td>
+      		<td>${x.descricao}</td>
+      		<td>${x.horasPrevistas}</td>
+      		<td>${x.custo}</td>
+      		<td><a href="<%=request.getContextPath()%>/tarefa/nova?codRequisito=${x.codRequisito}" 
+      		class="btn btn-primary btn-xs">Escolher</a></td>
+      	</tr>
+      	</c:forEach>
+      	</tbody>
+     </table>
+     </div>
+    
+    
      
-    <div>
-    	<ul class="list-group">
-    		<li class="list-group-item">Código: ${item.codProjeto}</li>
-    		<li class="list-group-item">Nome: ${item.nome}</li>
-    		<li class="list-group-item">Descrição: ${item.descricao}</li>
-    		<li class="list-group-item">Data de Entrega: ${item.dataEntrega}</li>
-    		<li class="list-group-item">Nome do cliente: ${item.cliente.nome}</li>
-    		<li class="list-group-item">Email do cliente: ${item.cliente.email}</li>
-    		<li class="list-group-item">Custo Total do Projeto:<fmt:setLocale value="pt_BR" /> 
-    		<fmt:formatNumber type="currency" value="${item.custoTotal}"/>
-      	</ul>
-    </div>
-    
-    
-    
-    <div>
-    	<a href="<%=request.getContextPath()%>/projeto/pesquisar"
-    	class="btn btn-primary">Nova Pesquisa</a>
-    </div>
-  </div>
+     
 
   <jsp:include page="/resources/templates/rodape.jsp"/>
 

@@ -14,7 +14,7 @@
           <ul class="nav navbar-nav">
             <li><a href="<%=request.getContextPath()%>/funcionario/listar">Cadastro de Funcionário</a></li>
             <li><a href="<%=request.getContextPath()%>/projeto/pesquisar">Pesquisar Projeto</a></li>
-            <li><a href="<%=request.getContextPath()%>/tarefa/inserir">Incluir Tarefa em Requisito</a></li>
+            <li><a href="<%=request.getContextPath()%>/tarefa/projetos">Incluir Tarefa em Requisito</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

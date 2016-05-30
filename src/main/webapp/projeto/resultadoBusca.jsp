@@ -43,7 +43,7 @@
       		<td>${x.descricao}</td>
       		<td>${x.dataEntrega}</td>
       		<td><a href="<%=request.getContextPath()%>/projeto/detalhes?cod=${x.codProjeto}" 
-      		class="btn btn=primary btn-xs">Detalhes</a></td>
+      		class="btn btn-primary btn-xs">Detalhes</a></td>
       	</tr>
       	</c:forEach>
       	</tbody>

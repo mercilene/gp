@@ -30,23 +30,23 @@
 
      
      <div class="form-group">
-     			<label class="col-sm-2 control-label" form="nome">Nome:</label>
+     			<label class="col-sm-2 control-label" for="nome">Nome/Trecho do Nome:</label>
      			<div class="col-sm-5">
      				<input type="text" name="nome" id="nome" value="" class="form-control"/> 
      			</div>
     </div>
     
     <div class="form-group">
-    	<label class="col-sm-2 control-Label" form="dataMin">Data mínima:</label>
+    	<label class="col-sm-2 control-Label" for="dataMin">Data mínima:</label>
     	<div class="col-sm-5">
-    		<input type="number" name="dataMin" id="dataMin" value="" required="required" class="form-control"/>
+    		<input type="text" name="dataMin" id="dataMin" value="" required="required" class="form-control"/>
     	</div>
     </div>
     
     <div class="form-group">
-    	<label class="col-sm-2 control-Label" form="dataMax">Data máxima:</label>
+    	<label class="col-sm-2 control-Label" for="dataMax">Data máxima:</label>
     	<div class="col-sm-5">
-    		<input type="number" name="dataMax" id="dataMax" value="" required="required" class="form-control"/>
+    		<input type="text" name="dataMax" id="dataMax" value="" required="required" class="form-control"/>
     	</div>
     </div>
      
