@@ -10,10 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dominio.Funcionario;
-import dominio.Projeto;
+import dominio.Requisito;
 import dominio.Tarefa;
 import servico.FuncionarioServico;
-import servico.ProjetoServico;
 import servico.RequisitoServico;
 import servico.ServicoException;
 import servico.TarefaServico;
@@ -28,8 +27,8 @@ public class TarefaInserir extends HttpServlet {
 	private static String FORM = "/tarefa/formInserir.jsp";
 	private static String ERRO = "/public/erro.jsp";
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		ProjetoServico ps = new ProjetoServico();
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
 		RequisitoServico rs = new RequisitoServico();
 		TarefaServico ts = new TarefaServico();
 		FuncionarioServico fs = new FuncionarioServico();
@@ -38,32 +37,31 @@ public class TarefaInserir extends HttpServlet {
 		try {
 			ts.validar(x);
 			ts.inserir(x);
-			Projeto projeto = ps.buscar(x.getProjeto).getCodProjeto());
-			//projeto.getTarefa().size();
-			request.setAttribute("item", projeto);
+			Requisito requisito = rs.buscar(x.getRequisito().getCodRequisito());
+			request.setAttribute("item", requisito);
 			request.getRequestDispatcher(DESTINO).forward(request, response);
 		} catch (ServicoException e) {
 			request.setAttribute("msg", e.getMessage());
 			request.getRequestDispatcher(ERRO).forward(request, response);
 		} catch (ValidacaoException e) {
-			List<Funcionario> itens = fs.buscarTodos();
+			List<Funcionario> funcionarios = fs.buscarTodos();
 			request.setAttribute("erros", e.getErros());
 			request.setAttribute("item", x);
-			request.setAttribute("funcionarios", funcionarios);
+			request.setAttribute("funcionarios",funcionarios );
 			request.setAttribute("funcionariosSelecionados", x.getFuncionario());
 			request.getRequestDispatcher(FORM).forward(request, response);
 			
 			
-			<-- comentar List<Funcionario> itens = fs.buscarTodosOrdenadosPorNome();
-			request.setAttribute("itens", itens);
-			request.getRequestDispatcher(DESTINO).forward(request, response);
-		} catch (ServicoException e) {
-			request.setAttribute("msg", e.getMessage());
-			request.getRequestDispatcher(ERRO).forward(request, response);
-		} catch (ValidacaoException e) {
-			request.setAttribute("erros", e.getErros());
-			request.setAttribute("item", x);
-			request.getRequestDispatcher(FORM).forward(request, response);-->
+			// comentar List<Funcionario> itens = fs.buscarTodosOrdenadosPorNome();
+			//request.setAttribute("itens", itens);
+			//request.getRequestDispatcher(DESTINO).forward(request, response);
+		//} catch (ServicoException e) {
+			//request.setAttribute("msg", e.getMessage());
+			//request.getRequestDispatcher(ERRO).forward(request, response);
+		//} catch (ValidacaoException e) {
+			//request.setAttribute("erros", e.getErros());
+			//request.setAttribute("item", x);
+			//request.getRequestDispatcher(FORM).forward(request, response);-->
 		}
 	
 	} 

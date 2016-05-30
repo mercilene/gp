@@ -7,19 +7,15 @@ import java.text.SimpleDateFormat;
 import javax.servlet.http.HttpServletRequest;
 
 import dominio.Funcionario;
-import dominio.Projeto;
 import dominio.Requisito;
 import dominio.Tarefa;
-import servico.ClienteServico;
 import servico.FuncionarioServico;
-import servico.ProjetoServico;
 import servico.RequisitoServico;
 
 public class Instanciar {
 public static Tarefa tarefa(HttpServletRequest request) {
 		
-		ClienteServico cs = new ClienteServico();
-		ProjetoServico ps = new ProjetoServico();
+		
 		RequisitoServico rs = new RequisitoServico();
 		FuncionarioServico fs = new FuncionarioServico();
 		
@@ -66,16 +62,7 @@ public static Tarefa tarefa(HttpServletRequest request) {
 			}
 	}
 		
-		s = request.getParameter("codProjeto");
-		if (s != null && !s.isEmpty()) {
-			try{
-				Projeto x = ps.buscar(Integer.parseInt(s));
-			//	aux.setProjeto(x);
-			} catch (NumberFormatException e){
-				System.out.println("Instanciacao: codProjeto invalido");
-			}
-	}
-
+		
 		return aux;
 	}
 	
