@@ -24,23 +24,17 @@ public class TarefaNova extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 
-	/*ProjetoServico ps = new ProjetoServico();*/
+	
 	RequisitoServico rs = new RequisitoServico();
 	FuncionarioServico fs = new FuncionarioServico();
 	
-	/*int codProjeto = Integer.parseInt(request.getParameter("codProjeto"));*/
-	/*Projeto projeto = ps.buscar(codProjeto);*/
-	
+		
 	int codRequisito = Integer.parseInt(request.getParameter("codRequisito"));
 	Requisito requisito = rs.buscar(codRequisito);
 	
-	int codFuncionario = Integer.parseInt(request.getParameter("codFuncionario"));
-	Funcionario funcionario = fs.buscar(codFuncionario);
-	
 	Tarefa nova = new Tarefa();
-	/*nova.setProjeto(projeto);*/
 	nova.setRequisito(requisito);
-	nova.setFuncionario(funcionario);
+	
 	
 		
 	List<Funcionario> funcionarios = fs.buscarTodos();

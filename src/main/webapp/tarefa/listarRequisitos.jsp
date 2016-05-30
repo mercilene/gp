@@ -38,7 +38,7 @@
       	<tbody>
       	 <c:forEach items="${itens}" var="x">
       	 <tr>
-      		<td>${x.codProjeto}</td>
+      		<td>${x.codRequisito}</td>
       		<td>${x.descricao}</td>
       		<td>${x.horasPrevistas}</td>
       		<td>${x.custo}</td>
