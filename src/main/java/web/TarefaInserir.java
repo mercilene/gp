@@ -23,11 +23,11 @@ import servico.ValidacaoException;
 public class TarefaInserir extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private static String DESTINO ="//detalheCompleto.jsp";
+	private static String DESTINO ="/projeto/detalheCompleto.jsp";
 	private static String FORM = "/tarefa/formInserir.jsp";
 	private static String ERRO = "/public/erro.jsp";
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
 		RequisitoServico rs = new RequisitoServico();
 		TarefaServico ts = new TarefaServico();
@@ -51,17 +51,7 @@ public class TarefaInserir extends HttpServlet {
 			request.setAttribute("funcionariosSelecionados", x.getFuncionario());
 			request.getRequestDispatcher(FORM).forward(request, response);
 			
-			
-			// comentar List<Funcionario> itens = fs.buscarTodosOrdenadosPorNome();
-			//request.setAttribute("itens", itens);
-			//request.getRequestDispatcher(DESTINO).forward(request, response);
-		//} catch (ServicoException e) {
-			//request.setAttribute("msg", e.getMessage());
-			//request.getRequestDispatcher(ERRO).forward(request, response);
-		//} catch (ValidacaoException e) {
-			//request.setAttribute("erros", e.getErros());
-			//request.setAttribute("item", x);
-			//request.getRequestDispatcher(FORM).forward(request, response);-->
+					
 		}
 	
 	} 

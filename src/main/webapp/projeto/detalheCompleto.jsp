@@ -27,11 +27,13 @@
      
     <div>
     	<ul class="list-group">
-    		<li class="list-group-item">Código: ${item.codProjeto}</li>
+    		<li class="list-group-item">Código: ${item.codRequisito}</li>
     		<li class="list-group-item">Descrição: ${item.descricao}</li>
     		<li class="list-group-item">Horas Previstas: ${item.horasPrevistas}</li>
     		<li class="list-group-item">Custo: ${item.custo}</li>
-    		<li class="list-group-item">Extrapolado: <fmt:setLocale value="pt_BR" /> <fmt:formatNumber type="currency" value="${item.extrapolado}"/></li>
+    		
+    		
+    		<li class="list-group-item">Extrapolado: <c:if test="${item.extrapolado}">Sim</c:if><c:if test="${!item.extrapolado}">Não</c:if></li>
        	</ul>
     </div>
     
@@ -46,6 +48,7 @@
     		<thead>
     		<tr>
     			<th>Código da Tarefa</th>
+    			<th>Descrição</th>
     			<th>Horas</th>
     			<th>Nome do Funcionário</th>
     			<th>Email do Funcionário</th>
@@ -54,21 +57,22 @@
     			<tbody>
     			<c:forEach items="${item.tarefas}" var="x">
     			<tr>
-    				<td>$.{x.codTarefa}</td>
-    				<td>$.{x.horas}</td>
-    				<td>$.{x.funcionario.nome}</td>
-    				<td>$.{x.funcionario.email}</td>
+    				<td>${x.codTarefa}</td>
+    				<td>${x.descricao}</td>
+    				<td>${x.horas}</td>
+    				<td>${x.funcionario.nome}</td>
+    				<td>${x.funcionario.email}</td>
     		 </tr>
     		 </c:forEach>
     			</tbody>
     	</table>
     </div>
+  </div>
        
     <div>
-    	<a href="<%=request.getContextPath()%>/projeto/pesquisar"
+    	<a href="<%=request.getContextPath()%>/tarefa/projetos"
     	class="btn btn-primary">Nova Pesquisa</a>
     </div>
-  
 </div>
 
   <jsp:include page="/resources/templates/rodape.jsp"/>

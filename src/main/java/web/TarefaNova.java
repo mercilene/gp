@@ -23,19 +23,15 @@ public class TarefaNova extends HttpServlet {
 	private static String DESTINO ="/tarefa/formInserir.jsp";
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-
 	
 	RequisitoServico rs = new RequisitoServico();
 	FuncionarioServico fs = new FuncionarioServico();
-	
-		
+			
 	int codRequisito = Integer.parseInt(request.getParameter("codRequisito"));
 	Requisito requisito = rs.buscar(codRequisito);
 	
 	Tarefa nova = new Tarefa();
 	nova.setRequisito(requisito);
-	
-	
 		
 	List<Funcionario> funcionarios = fs.buscarTodos();
 	

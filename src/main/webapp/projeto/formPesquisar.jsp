@@ -25,7 +25,7 @@
         <h1>Pesquisar Projetos</h1>
       </div>
      
-     <form method="get" name="myform" class="form-horizontal" 
+     <form method="post" name="myform" class="form-horizontal" 
      action="<%=request.getContextPath()%>/projeto/resultado">
 
      

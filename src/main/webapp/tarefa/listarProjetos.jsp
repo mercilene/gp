@@ -41,7 +41,7 @@
       		<td>${x.codProjeto}</td>
       		<td>${x.nome}</td>
       		<td>${x.descricao}</td>
-      		<td>${x.dataEntrega}</td>
+      		<td><fmt:formatDate type="date" pattern="dd/MM/yyyy" value="${x.dataEntrega}"/>
       		<td><a href="<%=request.getContextPath()%>/tarefa/requisitos?codProjeto=${x.codProjeto}" 
       		class="btn btn-primary btn-xs">Escolher</a></td>
       	</tr>

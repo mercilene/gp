@@ -30,7 +30,7 @@
     		<li class="list-group-item">Código: ${item.codProjeto}</li>
     		<li class="list-group-item">Nome: ${item.nome}</li>
     		<li class="list-group-item">Descrição: ${item.descricao}</li>
-    		<li class="list-group-item">Data de Entrega: ${item.dataEntrega}</li>
+    		<li class="list-group-item">Data de Entrega: <fmt:formatDate type="date" pattern="dd/MM/yyyy" value="${item.dataEntrega}"/></li>
     		<li class="list-group-item">Nome do cliente: ${item.cliente.nome}</li>
     		<li class="list-group-item">Email do cliente: ${item.cliente.email}</li>
     		<li class="list-group-item">Custo Total do Projeto:<fmt:setLocale value="pt_BR" /> 

@@ -13,20 +13,19 @@ import servico.FuncionarioServico;
 import servico.RequisitoServico;
 
 public class Instanciar {
-public static Tarefa tarefa(HttpServletRequest request) {
-		
+	
+	public static Tarefa tarefa(HttpServletRequest request) {
 		
 		RequisitoServico rs = new RequisitoServico();
 		FuncionarioServico fs = new FuncionarioServico();
-		
-		
+				
 		Tarefa aux = new Tarefa();
 		String s;
 		
 		s = request.getParameter("codTarefa");
 		if (s != null && !s.isEmpty()) {
 			try{
-			aux.setCodTarefa(Integer.parseInt(s));
+				aux.setCodTarefa(Integer.parseInt(s));
 			} catch(NumberFormatException e){
 				System.out.println("Instanciacao: codTarefa inválido");
 			}
@@ -39,7 +38,11 @@ public static Tarefa tarefa(HttpServletRequest request) {
 
 		s = request.getParameter("horas");
 		if (s != null && !s.isEmpty()) {
-		//	aux.setHoras(s);
+			try{
+			aux.setHoras(Integer.parseInt(s));
+			} catch (NumberFormatException e){
+				System.out.println("Instanciacao: horas invalidas");
+			}
 		}
 		
 		s = request.getParameter("codFuncionario");

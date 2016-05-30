@@ -42,7 +42,7 @@
      <div class="form-group">
      		<label class="col-sm-2 control-label" for="codFuncionario">Código:</label>
      			<div class="col-sm-5">
-     				<input type="text" name="codFuncionario" id="codFuncionario" value="${item.codFuncionario}" required="required" class="form-control"/>
+     				<input type="text" name="codFuncionario" id="codFuncionario" value="${item.codFuncionario}" required="required" readonly="readonly" class="form-control"/>
      			</div>
      	</div>
      

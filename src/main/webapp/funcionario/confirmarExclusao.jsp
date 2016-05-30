@@ -32,7 +32,7 @@
       	<li class="list-group-item">CPF: ${item.cpf}</li>
       	<li class="list-group-item">Telefone: ${item.fone}</li>
       	<li class="list-group-item">Email: ${item.email}</li>
-      	<li class="list-group-item">Data de Nascimento: <fmt:formatDate type="date" pattern="dd/mm/yyyy" value="${item.nascimento}"/></li>
+      	<li class="list-group-item">Data de Nascimento: <fmt:formatDate type="date" pattern="dd/MM/yyyy" value="${item.nascimento}"/></li>
       	<li class="list-group-item">Salário: <fmt:setLocale value="pt_BR"/><fmt:formatNumber type="currency" value="${item.salario}"/></li>
       	</ul>
      </div>

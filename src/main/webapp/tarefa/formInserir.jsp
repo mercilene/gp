@@ -26,12 +26,12 @@
       </div>
     
      
-      <form method="get" name="myform" class="form-horizontal" 
+      <form method="post" name="myform" class="form-horizontal" 
      action="<%=request.getContextPath()%>/tarefa/inserir">
      
    
       <!-- Importante! Não esqueça de repassar o requisito do projeto -->
-     <input type="hidden" name="codRequisito" values="${item.requisito.codRequisito}"/>
+     <input type="hidden" name="codRequisito" value="${item.requisito.codRequisito}"/>
          
      <div class="form-group">
      		<div class="col-sm-offset-2 col-sm-10">
@@ -67,7 +67,7 @@
      	<div class="form-group">
      		<label class="col-sm-2 control-label" for="horas">Horas da Tarefa:</label>
      			<div class="col-sm-5">
-     				<input type="text" name="horas" id="horas" value="${item.horas}" required="required" class="form-control"/>
+     				<input type="number" name="horas" id="horas" value="${item.horas}" required="required" class="form-control"/>
      			</div>
     </div>
      

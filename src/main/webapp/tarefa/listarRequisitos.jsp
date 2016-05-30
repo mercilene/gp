@@ -41,7 +41,7 @@
       		<td>${x.codRequisito}</td>
       		<td>${x.descricao}</td>
       		<td>${x.horasPrevistas}</td>
-      		<td>${x.custo}</td>
+      		<td><fmt:setLocale value="pt_BR" /><fmt:formatNumber type="currency" value="${x.custo}"/></td>
       		<td><a href="<%=request.getContextPath()%>/tarefa/nova?codRequisito=${x.codRequisito}" 
       		class="btn btn-primary btn-xs">Escolher</a></td>
       	</tr>
